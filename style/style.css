@@ -39,6 +39,7 @@ body {
   background-color: gray;
   color: #ffffff;
   font-size: 2.4rem;
+  text-align: right;
 }
 .keyboard-container {
   width: 100%;
@@ -63,7 +64,7 @@ body {
   text-align: center;
 }
 .keyboard-container #keyboard .digit:active {
-  background-color: green;
+  background-color: rgb(4, 20, 243);
 }
 .keyboard-container #keyboard #equal {
   grid-column: 3/5;
