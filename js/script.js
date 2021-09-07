@@ -1,71 +1,57 @@
-function getInput(){
-    let inputValue = document.getElementById('inputValue').value;
-    return inputValue;
-    
+
+function inputValue(id){
+    let inputNumber= document.querySelector(id).value;
+    return inputNumber;
 }
 
-function getInputValue(num){
-    document.getElementById('inputValue').value =num;
-    
-}
-
-function getOutput(){
-    let inputResult = document.getElementById('result').value;
-    return inputResult;
-    
-}
-
-function getOutputResult(num){
-     document.getElementById('result').value =num;
+function outputValue(id,updatedValue){
+    document.querySelector(id).value = updatedValue;
     
 }
 
 
 
+let inputDigit;
 let digits = document.querySelectorAll('.digit');
 for(let i=0; i<digits.length;i++){
     let digit = digits[i];
-    digit.addEventListener('click',function(){
+    digit.addEventListener('click',function(e){
         
-        let inputDigit = getInput();
-        inputDigit = inputDigit + this.innerText;
-        getInputValue(inputDigit)
-        // let test = document.getElementById('inputValue').value;
-        // test = test = this.innerText;
-        // getInputValue(test)
-        if(this.id =="clear"){
-            getInputValue('')
-            getOutputResult('')
+        inputDigit = inputValue('#inputValue')
+      
+        inputDigit = inputDigit + e.target.innerText;
+        console.log(inputDigit);
+        outputValue("#inputValue",inputDigit);
+        
+        if(this.id == 'clear' ){
+            outputValue("#inputValue",'');
+            outputValue("#result",'');
         }
         else if(this.id == 'backspace'){
-            var inputNumber = getInput();
-            console.log(inputNumber)
-            // let inputNumber = parseFloat(inputDigit)
-            inputNumber = inputNumber.slice(0, -1);
-            console.log(inputNumber);
-            getInputValue(inputNumber);
-            getOutputResult('')
+            inputDigit = inputDigit.slice(0,-2);
+            outputValue("#inputValue",inputDigit);
         }
-        
-        
-        
-    })
-}
+       
+        else if(this.id == 'equal'){
+                inputDigit = inputDigit.slice(0,-1);
+                outputValue('#inputValue',inputDigit);
+                let finalResult = eval(inputDigit);
+               outputValue("#result",finalResult);
+            
+            
+         }
+            else if(this.id == 'percentage'){
+                inputDigit = inputDigit.slice(0,-1);
+                console.log(inputDigit);
+                outputValue('#inputValue',inputDigit);
+               let percentageResult = inputDigit/100;
+               console.log(percentageResult);
+               outputValue("#result",percentageResult);
+           }
+           
+                
+                
+            })
+        }
 
-
-// let operators = document.querySelectorAll('.operator');
-// for(let i=0; i<operators.length;i++){
-//     let operator = operators[i];
-//     operator.addEventListener('click',function(){
-        
-//        if(this.id =="clear"){
-//             getInputValue('')
-//             getOutputResult('')
-//         }
-        
-        
-        
-        
-//     })
-// }
 

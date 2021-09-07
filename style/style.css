@@ -27,19 +27,27 @@ body {
   height: 20vh;
   background-color: #000000;
 }
-#inputField #inputBox {
-  margin-top: 5px;
-}
+/* #inputField #inputBox {
+ 
+} */
 #inputField #inputValue,
 #result {
   width: 100%;
-  height: 8vh;
+  height: 9vh;
   border: none;
   outline: none;
   background-color: gray;
   color: #ffffff;
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: right;
+
+}
+#inputField,
+#result, ::placeholder{
+  font-size: 2.4rem;
+  color: rgb(31, 8, 241);
+  font-weight: 800;
+ 
 }
 .keyboard-container {
   width: 100%;
